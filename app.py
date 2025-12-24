@@ -1,6 +1,6 @@
 #app.py
 
-%%writefile app.py
+
 
 import streamlit as st
 import tensorflow as tf
@@ -61,15 +61,16 @@ if uploaded_file is not None:
     st.subheader("Super Resoluted vs. Standard Upscaling")
     col1, col2 = st.columns(2)
 
-    with col1:
-        st.image(bicubic_image, caption="Super-Resolved Output", use_container_width=True)
+   with col1:
+    st.image(predicted_array, caption="Super-Resolved Output")
 
-    with col2:
-        st.image(predicted_array, caption="Standard Bicubic Upscale", use_container_width=True)
+   with col2:
+    st.image(bicubic_image, caption="Standard Bicubic Upscale")
 
     # --- Display Metric ---
     st.metric(label="PSNR (Output vs. Input)", value=f"{psnr_value:.2f} dB")
     st.info(
         "This PSNR score shows how much detail and clarity the model added compared to a standard resize. "
         "Higher is better!"
+
     )
