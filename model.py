@@ -2,7 +2,7 @@
 # model.py  |  Residual Super-Resolution Model
 # ==============================================
 
-%%writefile model.py
+
 import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Conv2D, Add, Activation
@@ -46,3 +46,4 @@ def build_enhanced_model(input_shape=(32, 32, 3)):
     )
 
     return model
+
