@@ -58,14 +58,23 @@ if uploaded_file is not None:
     psnr_value = tf.image.psnr(input_array, predicted_array, max_val=1.0).numpy()
 
     # --- Display Results ---
-    st.subheader("Super Resoluted vs. Standard Upscaling")
-    col1, col2 = st.columns(2)
+   st.subheader("Super Resoluted vs. Standard Upscaling")
 
- with col1:
-    st.image(predicted_array, caption="Super-Resolved Output")
+col1, col2 = st.columns(2)
 
- with col2:
-    st.image(bicubic_image, caption="Standard Bicubic Upscale")
+with col1:
+    st.image(
+        predicted_array,
+        caption="Super-Resolved Output",
+        use_container_width=True
+    )
+
+with col2:
+    st.image(
+        bicubic_image,
+        caption="Standard Bicubic Upscale",
+        use_container_width=True
+    )
 
 
     # --- Display Metric ---
@@ -75,4 +84,5 @@ if uploaded_file is not None:
         "Higher is better!"
 
     )
+
 
