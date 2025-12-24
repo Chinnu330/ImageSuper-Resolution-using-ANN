@@ -61,11 +61,12 @@ if uploaded_file is not None:
     st.subheader("Super Resoluted vs. Standard Upscaling")
     col1, col2 = st.columns(2)
 
-   with col1:
+ with col1:
     st.image(predicted_array, caption="Super-Resolved Output")
 
-   with col2:
+ with col2:
     st.image(bicubic_image, caption="Standard Bicubic Upscale")
+
 
     # --- Display Metric ---
     st.metric(label="PSNR (Output vs. Input)", value=f"{psnr_value:.2f} dB")
@@ -74,3 +75,4 @@ if uploaded_file is not None:
         "Higher is better!"
 
     )
+
